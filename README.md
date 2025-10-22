@@ -29,21 +29,44 @@ OpenXmlAotTest/
 
 ## Building the Project
 
-### Standard Build
+### Quick Start with Build Scripts
+
+**Linux/macOS:**
+```bash
+./build-aot.sh
+```
+
+**Windows:**
+```cmd
+build-aot.bat
+```
+
+The build scripts will:
+1. Check .NET SDK version
+2. Restore NuGet packages
+3. Build the project
+4. Run the standard .NET version
+5. Compile with Native AOT
+6. Run the AOT-compiled version
+7. Display binary information
+
+### Manual Build Steps
+
+#### Standard Build
 
 ```bash
 cd OpenXmlAotTest
 dotnet build
 ```
 
-### Running with .NET Runtime
+#### Running with .NET Runtime
 
 ```bash
 cd OpenXmlAotTest
 dotnet run
 ```
 
-### Native AOT Compilation
+#### Native AOT Compilation
 
 To compile the application with Native AOT:
 
@@ -57,11 +80,18 @@ The compiled executable will be located at:
 - Windows: `bin/Release/net9.0/win-x64/publish/OpenXmlAotTest.exe`
 - macOS: `bin/Release/net9.0/osx-x64/publish/OpenXmlAotTest`
 
-### Running the Native AOT Executable
+#### Running the Native AOT Executable
 
+**Linux/macOS:**
 ```bash
 cd OpenXmlAotTest/bin/Release/net9.0/linux-x64/publish
 ./OpenXmlAotTest
+```
+
+**Windows:**
+```cmd
+cd OpenXmlAotTest\bin\Release\net9.0\win-x64\publish
+OpenXmlAotTest.exe
 ```
 
 ## What the Application Does
@@ -115,7 +145,28 @@ This is a demonstration project for educational purposes.
 
 这是一个演示项目，展示如何在 .NET 9 Native AOT 编译环境中使用 DocumentFormat.OpenXml 库来创建和修改 Excel 文件。
 
-### 构建和运行
+### 快速开始
+
+**Linux/macOS:**
+```bash
+./build-aot.sh
+```
+
+**Windows:**
+```cmd
+build-aot.bat
+```
+
+构建脚本将自动完成：
+1. 检查 .NET SDK 版本
+2. 恢复 NuGet 包
+3. 编译项目
+4. 运行标准 .NET 版本
+5. 执行 Native AOT 编译
+6. 运行 AOT 编译后的版本
+7. 显示二进制文件信息
+
+### 手动构建步骤
 
 ```bash
 # 标准编译
@@ -135,8 +186,17 @@ cd bin/Release/net9.0/linux-x64/publish
 
 ### 功能特性
 
-- 创建 Excel 文件
-- 修改现有 Excel 文件
-- 读取并显示 Excel 文件内容
-- 完全支持 .NET 9 Native AOT 编译
-- 无需 .NET 运行时即可部署
+- ✅ 创建 Excel 文件
+- ✅ 修改现有 Excel 文件中的单元格
+- ✅ 添加新行
+- ✅ 读取并显示 Excel 文件内容
+- ✅ 完全支持 .NET 9 Native AOT 编译
+- ✅ 无需 .NET 运行时即可部署
+- ✅ 快速启动和低内存占用
+
+### 性能优势
+
+- **更快的启动速度**: 无需 JIT 编译
+- **更低的内存占用**: 更小的内存占用
+- **独立部署**: 无需安装 .NET 运行时
+- **更小的部署包**: 单个可执行文件（约 25MB）
